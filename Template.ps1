@@ -1,6 +1,6 @@
 <#
     .SYNOPSIS
-    Doel van script
+    Beknopte omschrijving doel van script.
     .DESCRIPTION
     Template voor het maken van scripts
 
