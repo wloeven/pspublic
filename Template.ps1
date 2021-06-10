@@ -105,11 +105,11 @@ if ( $PSBoundParameters.Values.Count -eq 0 -and $args.count -eq 0 ) {
     return 
     }
 if ( $PSBoundParameters.Values.Count -eq 0 ){ 
-    Write-Output ("No parameters passed")     
+    Write-Output ("Geen parameters opgegeven")     
     return
     }
 if ( $args -and $args.count -gt 0 ) {
-    Write-Output ("Found Args $args")  
+    Write-Output ("Volgende argumenten opgegeven $args")  
 }
 
 if ($parameter -eq $true) {
