@@ -1,16 +1,8 @@
 <#
     .SYNOPSIS
-    Doel
+    Doel van script
     .DESCRIPTION
-    Template voor gebruik van scripts bouwen
-
-    Versies
-
-    0.1 CONCEPT
-    Auteur  : Willem Loeven
-    Datum   : 10-6-2021
-    #######################################
-    Initieel script.
+    Template voor het maken van scrips
 
     .NOTES
     Bestandsnaam    : Template.ps1
@@ -23,7 +15,7 @@
     https://www.willemloeven.nl
 
     .INPUTS
-    inputs voor script
+    inputs voor script parameters etc.
     .OUTPUTS
     outputs van script (logfiles/exports/wijzigingen)
     .EXAMPLE
@@ -37,7 +29,6 @@
 ################################################
 #Requires -Version 4
 #Requires -RunAsAdministrator
-
 
 ################################################
 # Script parameters definieren en laden 
@@ -105,9 +96,24 @@ function Reset-Memory {
 $ScriptVersion = "0.1"
 $ErrorActionPreference = "SilentlyContinue"
 $ScriptDescription = "<Template script>"
+
 ################################################
 # Parameter gebaseerde acties
 ################################################
+if ( $PSBoundParameters.Values.Count -eq 0 -and $args.count -eq 0 ) {
+    Get-Help $MyInvocation.MyCommand.Definition
+    return 
+    }
+if ( $PSBoundParameters.Values.Count -eq 0 ){ 
+    Write-Output ("No parameters passed")     
+    return
+    }
+if ( $args -and $args.count -gt 0 ) {
+    Write-Output ("Found Args $args")  
+}
+
+
+
 if ($parameter -eq $true) {
     #Parameter acties
 }
@@ -115,9 +121,12 @@ if ($parameter -eq $true) {
 ################################################
 # Start Script
 ################################################
-write-host -foregroundcolor cyan "Scriptversie      : $($scriptversion)"
-write-host -ForegroundColor Cyan "Scriptlocatie     : $($PSSCRIPTROOT)\$($MyInvocation.MyCommand.Name)"
-write-host -ForegroundColor Cyan "Omschrijving      : $($ScriptDescription)"
+write-verbose "Scriptversie      : $($scriptversion)"
+write-verbose "Scriptlocatie     : $($PSSCRIPTROOT)\$($MyInvocation.MyCommand.Name)"
+write-verbose "Omschrijving      : $($ScriptDescription)"
+write-verbose "Gestart door      : $($env:USERDOMAIN)\$($env:USERNAME)"
+Write-verbose ""
+
 
 
 ################################################
