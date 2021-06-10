@@ -67,13 +67,10 @@ function Reset-Memory {
     #>
     [CmdletBinding()]
     param (
-        
     )
-    
     begin {
         Write-verbose "$(get-date) Functie Reset-Memory"
     }
-    
     process {
         try {
             Get-Variable | Where-Object { $startupVariables -notcontains $_.Name } | ForEach-Object { try { Remove-Variable -Name "$($_.Name)" -Force -Scope "global" -ErrorAction SilentlyContinue -WarningAction SilentlyContinue } catch { } }              
@@ -83,7 +80,6 @@ function Reset-Memory {
             break
         }
     }
-    
     end {
         If ($?) {
             Write-verbose "$(get-date) Functie uitgevoerd."
