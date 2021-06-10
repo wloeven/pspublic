@@ -71,7 +71,7 @@ function Reset-Memory {
     )
     
     begin {
-        Write-Verbose "$(get-date) Functie Reset-Memory"
+        Write-verbose "$(get-date) Functie Reset-Memory"
     }
     
     process {
@@ -86,7 +86,7 @@ function Reset-Memory {
     
     end {
         If ($?) {
-            Write-Verbose "$(get-date) Functie uitgevoerd."
+            Write-verbose "$(get-date) Functie uitgevoerd."
         }
     }
 }
@@ -94,7 +94,7 @@ function Reset-Memory {
 # GLOBALE Variabelen
 ##########################################################################################
 $ScriptVersion = "0.1"
-#$ErrorActionPreference = "SilentlyContinue"
+$ErrorActionPreference = "SilentlyContinue"
 $ScriptDescription = "<Template script>"
 
 ##########################################################################################
@@ -117,8 +117,6 @@ write-verbose "Scriptversie      : $($scriptversion)"
 write-verbose "Scriptlocatie     : $($PSSCRIPTROOT)\$($MyInvocation.MyCommand.Name)"
 write-verbose "Omschrijving      : $($ScriptDescription)"
 write-verbose "Gestart door      : $($env:USERDOMAIN)\$($env:USERNAME)"
-
-write-error "TESTMESSAGE"
 
 ##########################################################################################
 # Einde script
