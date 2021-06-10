@@ -112,8 +112,6 @@ if ( $args -and $args.count -gt 0 ) {
     Write-Output ("Found Args $args")  
 }
 
-
-
 if ($parameter -eq $true) {
     #Parameter acties
 }
