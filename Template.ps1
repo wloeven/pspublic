@@ -7,7 +7,7 @@
     .NOTES
     Bestandsnaam    : Template.ps1
     Auteur          : Willem Loeven
-    Requirements    : Powershell V4 en hoger
+    Requirements    : Powershell Vx en hoger
                     : modules / infrastructuur etc.
 
     .LINK
