@@ -71,7 +71,7 @@ function Reset-Memory {
     )
     
     begin {
-        Write-host -foregroundcolor cyan "$(get-date) Functie Reset-Memory"
+        Write-Verbose -foregroundcolor cyan "$(get-date) Functie Reset-Memory"
     }
     
     process {
@@ -79,14 +79,14 @@ function Reset-Memory {
             Get-Variable | Where-Object { $startupVariables -notcontains $_.Name } | ForEach-Object { try { Remove-Variable -Name "$($_.Name)" -Force -Scope "global" -ErrorAction SilentlyContinue -WarningAction SilentlyContinue } catch { } }              
         }
         catch {
-            Write-Host -BackgroundColor Red "Error: $($_.Exception)"
+            Write-Verbose -BackgroundColor Red "Error: $($_.Exception)"
             break
         }
     }
     
     end {
         If ($?) {
-            Write-Host -ForegroundColor Cyan "$(get-date) Functie uitgevoerd."
+            Write-Verbose -ForegroundColor Cyan "$(get-date) Functie uitgevoerd."
         }
     }
 }
