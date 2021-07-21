@@ -118,3 +118,5 @@ write-verbose "Gestart door      : $($env:USERDOMAIN)\$($env:USERNAME)"
 # Einde script
 ##########################################################################################
 Reset-Memory
+
+
